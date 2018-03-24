@@ -41,7 +41,7 @@ register_activation_hook( __FILE__, 'activate_weforms_pdf' );
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-weforms-pdf.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class.weforms_pdf.php';
 
 /**
  * Begins execution of the plugin.
