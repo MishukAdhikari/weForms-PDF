@@ -31,8 +31,7 @@ if ( ! defined( 'WPINC' ) ) {
  * This action is documented in includes/class-weforms-pdf-activator.php
  */
 function activate_weforms_pdf() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-weforms-pdf-activator.php';
-	Weforms_Pdf_Activator::activate();
+	weforms_pdf::activate();
 }
 
 register_activation_hook( __FILE__, 'activate_weforms_pdf' );
@@ -54,8 +53,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class.weforms_pdf.php';
  */
 function weforms_pdf() {
 
-	$plugin = new Weforms_Pdf();
-	$plugin->run();
+	$plugin = new weforms_pdf();
 
 }
 weforms_pdf();
