@@ -42,18 +42,4 @@ register_activation_hook( __FILE__, 'activate_weforms_pdf' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class.weforms_pdf.php';
 
-/**
- * Begins execution of the plugin.
- *
- * Since everything within the plugin is registered via hooks,
- * then kicking off the plugin from this point in the file does
- * not affect the page life cycle.
- *
- * @since    1.0.0
- */
-function weforms_pdf() {
-
-	$plugin = new weforms_pdf();
-
-}
-weforms_pdf();
+new weforms_pdf();

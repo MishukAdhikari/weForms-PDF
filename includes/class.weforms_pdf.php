@@ -11,13 +11,24 @@ class weforms_pdf {
 	
 	public function __construct() {
 
+        add_action( 'weforms_loaded', array( $this, 'weform_pdf_init' ) );
+		
+	}
+
+    /**
+     * Initalization of the plugin
+     * 
+     * @return void
+     */
+    public function weform_pdf_init() {
+
         add_action( 'admin_post_weforms_pdf_view', array( $this, 'download_pdf' ) );
 
         add_filter( 'weforms_get_entry_columns', array( $this, 'pdf_column' ) );
 
         add_filter( 'weforms_get_entries', array( $this, 'download_link' ) );
-		
-	}
+
+    }
 
 	/**
 	 * Callback while activation
@@ -56,7 +67,8 @@ class weforms_pdf {
     }
 
     /**
-     * Add column to entries field
+     * Add column to the
+     * entries field
      * 
      * @param  string $column 
      * @param  int $form_id
