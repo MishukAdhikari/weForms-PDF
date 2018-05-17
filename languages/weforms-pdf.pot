@@ -1,0 +1,69 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-05-17 20:39+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/"
+
+#: includes/class.weforms_pdf.php:47
+#, php-format
+msgid "<b>WeForms PDF</b> requires %sWeForms%s to be installed & activated!"
+msgstr ""
+
+#: includes/class.weforms_pdf.php:47
+#, php-format
+msgid "%sreturn to plugins dashboard%s"
+msgstr ""
+
+#: includes/class.weforms_pdf.php:63
+msgid "Download PDF"
+msgstr ""
+
+#: includes/class.weforms_pdf.php:79
+msgid "WeForms PDF"
+msgstr ""
+
+#: includes/class.weforms_pdf.php:138
+msgid "Generated From"
+msgstr ""
+
+#: includes/class.weforms_pdf.php:193
+msgid "Form Name: "
+msgstr ""
+
+#: includes/class.weforms_pdf.php:197
+msgid "Submitted on: "
+msgstr ""
+
+#: includes/class.weforms_pdf.php:201
+msgid "Submitted by: "
+msgstr ""
+
+#. Name of the plugin
+msgid "weForms PDF"
+msgstr ""
+
+#. Description of the plugin
+msgid "A simple plugin which allow to download weforms data as pdf"
+msgstr ""
+
+#. URI of the plugin
+msgid "http://wordpress.org/plugins/weforms-pdf"
+msgstr ""
+
+#. Author of the plugin
+msgid "Mishuk Adhikari"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "about.me/MishukAdhikari"
+msgstr ""

@@ -22,6 +22,8 @@ class weforms_pdf {
      */
     public function weform_pdf_init() {
 
+        add_action( 'plugins_loaded', array( $this, 'localization' ) );
+
         add_action( 'admin_post_weforms_pdf_view', array( $this, 'download_pdf' ) );
 
         add_filter( 'weforms_get_entry_columns', array( $this, 'pdf_column' ) );
@@ -49,6 +51,15 @@ class weforms_pdf {
 	
 	}
 
+    /**
+     * Localization of the plugin
+     * 
+     * @return void
+     */
+    public function localization() {
+        load_plugin_textdomain( 'weforms-pdf', false, dirname( plugin_basename( __DIR__ ) ) . '/languages/' );
+    }
+
 	/**
 	 * Create pdf download link to backend
 	 * 
@@ -60,7 +71,7 @@ class weforms_pdf {
 
         foreach ($entries as $key => $entry) {
 
-           $entry->fields['weforms_pdf'] = '<a href="'.admin_url('admin-post.php?action=weforms_pdf_view&entry_id='.$entry->id ).'">Download PDF</a>';
+           $entry->fields['weforms_pdf'] = '<a href="'.admin_url('admin-post.php?action=weforms_pdf_view&entry_id='.$entry->id ).'">'.__( 'Download PDF', 'weforms-pdf' ).'</a>';
         }
 
         return $entries;
@@ -76,7 +87,7 @@ class weforms_pdf {
      */
     public function pdf_column( $column, $form_id ) {
 
-        $column['weforms_pdf'] = 'WeForms PDF';
+        $column['weforms_pdf'] = __( 'WeForms PDF', 'weforms-pdf' );
 
         return $column;
     }
@@ -135,7 +146,7 @@ class weforms_pdf {
         $fpdf->SetFont('Arial','B',10);
         $fpdf->SetY(25);
         $fpdf->SetX(130);
-        $fpdf->Cell(62,10, 'Generated From', null, null, 'R');
+        $fpdf->Cell(62,10, __( 'Generated From', 'weforms-pdf' ), null, null, 'R');
         $fpdf->SetY(29);
         $fpdf->SetX(130);
         $fpdf->SetFont('Arial','',8);
@@ -190,15 +201,15 @@ class weforms_pdf {
 
         $fpdf->SetFont('Arial','B', 10);
         
-        $fpdf->Cell(85,10, 'Form Name: '.$form_name);
+        $fpdf->Cell(85,10, __( 'Form Name: ', 'weforms-pdf' ).$form_name);
 
         $fpdf->SetFont('Arial','', 10);
         
-        $fpdf->Cell(85,10, 'Submitted on: '.date_i18n( 'F j Y, g: i a', strtotime($submission_status->created_at)), null, null, 'R');
+        $fpdf->Cell(85,10, __( 'Submitted on: ', 'weforms-pdf' ).date_i18n( 'F j Y, g: i a', strtotime($submission_status->created_at)), null, null, 'R');
         
         $fpdf->Ln(5);
 
-        $fpdf->Cell(85,10, 'Submitted by: '.$user_info->user_login);
+        $fpdf->Cell(85,10, __( 'Submitted by: ', 'weforms-pdf' ).$user_info->user_login);
 
         $fpdf->output('I', get_the_title( $form_id ).'-'.$form_id.'.pdf');
 
